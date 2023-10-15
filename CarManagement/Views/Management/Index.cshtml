@@ -1,0 +1,202 @@
+﻿@{
+    ViewData["Title"] = "Car Management";
+}
+<style>
+    .error {
+        color: red;
+    }
+
+    .required {
+        color: red;
+    }
+</style>
+<!--begin::Tables Widget 9-->
+
+
+<div class="card mb-5 mb-xl-8">
+    <!--begin::Header-->
+    <div class="card-header border-0 pt-5">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder fs-3 mb-1">Car Management</span>
+        </h3>
+        <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a activity type ">
+            <a id="btnNew" href="#" class="btn btn-sm btn-primary btn-active-primary" data-bs-toggle="modal" data-bs-target="#addActitvityTypeModal">
+                <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                <span class="svg-icon svg-icon-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                    </svg>
+                </span>
+                <!--end::Svg Icon-->
+            </a>
+        </div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body py-3">
+        <!--begin::Table container-->
+        <div class="table-responsive">
+            <!--begin::Table-->
+            <table id="ManagementTable" class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                <!--begin::Table head-->
+                <thead>
+                    <tr class="fw-bolder text-muted">
+                        <th>Brand</th>
+                        <th>ModelName</th>
+                        <th>Description</th>
+                        <th>Feacture</th>
+                        <th>Price</th>
+                        <th>Date of manufecture</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <!--end::Table head-->
+                <!--begin::Table body-->
+                <tbody>
+                </tbody>
+                <!--end::Table body-->
+            </table>
+            <!--end::Table-->
+        </div>
+        <!--end::Table container-->
+    </div>
+    <!--begin::Body-->
+</div>
+<!--end::Tables Widget 9-->
+<!--begin::Modal - Add ActitvityType-->
+
+
+<div class="modal fade" id="addTypeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable ">
+        <div class="modal-content rounded">
+            <div class="modal-header pb-0 border-0 justify-content-end">
+                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                </div>
+            </div>
+            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                <form id="ManagementForm" class="form" action="#">
+                    <div class="mb-13">
+                        <h1 class="mb-3 TypeTitle">Save changes</h1>
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Brand<span style="color:red" class="required"></span></label>
+                        <input id="txtId" type="hidden" class="form-control form-control-solid" name="txtId" />
+                        <select id="ddlBrand" name="ddlBrand" class="form-control form-control-solid" >
+                            <option selected value=""> Choose a Brand...</option>
+                            <option  value="Audi"> Audi</option> 
+                            <option  value="Jaguar"> Jaguar</option>
+                            <option  value="Land Rover"> Land Rover</option>
+                            <option  value="Renault"> Renault</option>
+                        </select>
+                    </div> 
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Modal Name<span style="color:red" class="required"></span></label>
+                        <input id="txtModalname" type="text" class="form-control form-control-solid" min=2 placeholder="Enter Modal Name" name="txtModalname" maxlength=50 " />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Description<span style="color:red" class="required"></span></label>
+                        <textarea  id="txtdesc" type="text" class="form-control form-control-solid" min=2 placeholder="Enter Description" name="txtdesc" maxlength=50  ></textarea>
+                        <script>
+                            CKEDITOR.replace("txtdesc");
+                        </script>
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Feacture<span style="color:red" class="required"></span></label>
+                        <textarea id="txtFeacture" type="text" class="form-control form-control-solid" min=2 placeholder="Enter Feacture" name="txtFeacture" maxlength=50 ></textarea>
+                        <script>
+                            CKEDITOR.replace("txtFeacture");
+                        </script>
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Price<span style="color:red" class="required"></span></label>
+                        <input id="txtprice" type="number" class="form-control form-control-solid" min=2 placeholder="Enter Price" name="txtprice" maxlength=50" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Date of manufacture<span style="color:red" class="required"></span></label>
+                        <input id="txtDOM" type="date" class="form-control form-control-solid" min=2 placeholder="Enter Date Of Manufacture" name="txtDOM" />
+                    </div>
+                    <div class="d-flex flex-column mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">Image<span style="color:red" class="required"></span></label>
+                        <input id="txtImage" type="file" multiple="multiple" class="form-control form-control-solid" accept="image/png, image/gif, image/jpeg" placeholder="Enter Image" onchange="upload(this)" name="txtImage" />
+                    </div>
+                    <div class="text-center">
+                        <button type="button" id="btnReset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" id="btnSubmit" class="btn btn-primary">
+                            <span class="indicator-label">Save</span>
+                            <span class="indicator-progress">
+                                Please wait...
+                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!--end::Modal - Add ActitvityType-->
+<!--begin::Modal - Delete ActitvityType-->
+<div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable ">
+        <!--begin::Modal content-->
+        <div class="modal-content rounded">
+            <!--begin::Modal header-->
+            <div class="modal-header pb-0 border-0 justify-content-end">
+                <!--begin::Close-->
+                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                    <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+                <!--end::Close-->
+            </div>
+            <!--begin::Modal header-->
+            <!--begin::Modal body-->
+            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                <!--begin::Heading-->
+                <div class="mb-13">
+                    <!--begin::Title-->
+                    <h1 class="mb-3">Delete Activity Type</h1>
+                    <!--end::Title-->
+                </div>
+                <!--end::Heading-->
+                <div class="row g-9 mb-8">
+                    <label class="fs-6 fw-bold mb-2">Are you sure you want to delete activity type ?</label>
+                </div>
+                <!--begin::Actions-->
+                <div class="text-center">
+                    <button type="button" id="btnCancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" id="btnDelete" class="btn btn-primary">
+                        <span class="indicator-label">Delete</span>
+                        <span class="indicator-progress">
+                            Please wait...
+                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                        </span>
+                    </button>
+                </div>
+                <!--end::Actions-->
+            </div>
+            <!--end::Modal body-->
+        </div>
+        <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+</div>
+<!--end::Modal - Delete ActitvityType-->
+@section Scripts{
+    <script src="~/management.js"></script>
+}

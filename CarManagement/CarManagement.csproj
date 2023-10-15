@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\rules.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\Validation\" />
+    <Folder Include="wwwroot\FCK\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\image\IMG_7690.JPG" />
+    <None Include="wwwroot\assets\image\IMG_7693.JPG" />
+    <None Include="wwwroot\assets\image\rules.png" />
+  </ItemGroup>
+
+</Project>
